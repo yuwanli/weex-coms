@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yuwanli/weex-coms.git"
+    "url": "git+https://github.com/yuwanli/weex-coms.git"
   },
   "author": "604073367@qq.com",
   "license": "ISC",
