@@ -1,9 +1,12 @@
 <template>
   <div class="weex-demo">
+    <div class="description">
+      <text>weex-popup</text>
+      <text></text>
+    </div>
     <div class="btn" @click="showPopup = true">show</div>
-    <div class="btn" @click="showPopup = false">hide</div>
-    <weex-popup :show-popup="showPopup" :show-close=true @hidePopup="showPopup = false">
-      <div class="content" slot="content">
+    <weex-popup :show-popup="showPopup" :show-close=true @hidePopup="showPopup = false" :default-close=false>
+      <div class="content">
         <text>11111</text>
       </div>
     </weex-popup>
