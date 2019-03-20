@@ -1,39 +1,23 @@
 <template>
   <div class="weex-demo">
-    <text class="text">是我们这边在封装的跑马灯组件的时候遇到一些问题</text>
-    <text class="text">去除过渡动画，当枚举数量越多时，在安卓上的误差会越来越大，在ios上表现良好</text>
-    <text class="text">猜测是因为‘px->原生尺寸‘这个转换的过程中有误差产生，然后数据量大的时候，导致误差会越来越大</text>
-    <text class="text">希望官方能查下这个问题，且能解决下</text>
-    <text class="text">以下是去除过渡效果的时候，为展示效果都加上了边框</text>
-    <weex-lamp class="test" :container-style="containerStyle" :lamp-data="lampData" :item-style="itemStyle" :ani-time="aniTime" :stop-time="stopTime" :item-height="itemHeight" :test=true ref="lamp1">
-        <image
-        slot="before"
-        class="lamp-label"
-        src="http://h0.hucdn.com/open/201904/3db5bf7affe4900c_36x36.png"></image>
-        <div slot="item" class="test-item" slot-scope="{data}">
-            <image src="http://h0.hucdn.com/open/201904/3e066c4d8435290b_88x88.png" class="test-img"></image>
-            <text :style="itemStyle">{{data}}</text>
-        </div>
-    </weex-lamp>
-
-    <text class="text">最终希望达到的效果</text>
-    <weex-lamp class="test" :container-style="containerStyle" :lamp-data="lampData" :item-style="itemStyle" :ani-time="aniTime" :stop-time="stopTime" :item-height="itemHeight" ref="lamp2">
-        <image
-        slot="before"
-        class="lamp-label"
-        src="http://h0.hucdn.com/open/201904/3db5bf7affe4900c_36x36.png"></image>
-        <div slot="item" class="test-item" slot-scope="{data}">
-            <image src="http://h0.hucdn.com/open/201904/3e066c4d8435290b_88x88.png" class="test-img"></image>
-            <text :style="itemStyle">{{data}}</text>
-        </div>
-    </weex-lamp>
+      <text>11111</text>
+      <div class="test-wrapper">
+          <image
+            slot="before"
+            class="test-label"
+            src="http://h0.hucdn.com/open/201904/3db5bf7affe4900c_36x36.png"></image>
+            <weex-lamp class="test" :container-style="containerStyle" :lamp-data="lampData" :item-style="itemStyle" :ani-time="aniTime" :stop-time="stopTime" ref="lamp1">
+                <div slot="item" class="test-item" slot-scope="{data}">
+                    <image src="http://h0.hucdn.com/open/201904/3e066c4d8435290b_88x88.png" class="test-img"></image>
+                    <text :style="itemStyle">{{data}}</text>
+                </div>
+            </weex-lamp>
+      </div>
+    
 
     <text class="text">以下是另一种形式跑马灯</text>
-    <weex-lamp :container-style="containerStyle1" :lamp-data="lampData" :item-style="itemStyle1" :ani-time="aniTime" :item-height="itemHeight"
-    :lamp-type="lampType"
-    ref="lamp3">
+    <weex-lamp :container-style="containerStyle1" :lamp-data="lampData" :item-style="itemStyle1" :ani-time="aniTime" :lamp-type="lampType" ref="lamp2">
     </weex-lamp>
-
   </div>
 </template>
 <script>
@@ -41,23 +25,19 @@
   export default {
     components: { weexLamp },
     data: () => ({
-        itemHeight: 60,
         aniTime: 400,
         stopTime: 1200,
+        lampType: 'vertical',
         containerStyle: {
             width: '750px',
-            height: '60px',
-            'padding-left': '25px',
-            'padding-right': '25px',
-            'background-color': '#fff',
-            overflow: 'hidden',
+            height: '64px',
         },
         itemStyle: {
             color: '#C48C38',
-            height: '60px',
+            height: '64px',
             overflow: 'hidden',
             'font-size': '20px',
-            'line-height': '60px',
+            'line-height': '64px',
             'border-width': '1px',
             'border-style': 'solid',
             'border-color': 'red',
@@ -85,15 +65,13 @@
             width: '650px',
             margin: '50px',
             height: '400px',
-            'border-width': '20px',
-            'border-style': 'solid',
-            'border-color': '#fff',
             'border-radius': '20px',
             'background-color': '#fff',
         },
         itemStyle1: {
             color: '#C48C38',
             height: '60px',
+            padding: '0 24px',
             'font-size': '20px',
             'line-height': '60px',
         },
@@ -103,7 +81,7 @@
     mounted() {
         this.$refs.lamp1.start();
         this.$refs.lamp2.start();
-        this.$refs.lamp3.start();
+        // this.$refs.lamp3.start();
     }
   };
 </script>
@@ -114,7 +92,6 @@
   background-color: #ccc;
 }
 .test{
-    margin-top: 20px;
     &-item{
         align-items: center;
         flex-direction: row;
@@ -124,10 +101,22 @@
         width: 40px;
         height: 40px;
     }
+    &-wrapper{
+        height: 64px;
+        padding: 0 24px;
+        background-color: #fff;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    &-label{
+        margin-top: 20px;
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+    }
 }
 .text{
     font-size: 24px;
-    padding: 0 24px;
     margin-top: 15px;
 }
 </style>
