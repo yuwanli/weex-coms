@@ -1,9 +1,7 @@
 ## weex-popup
 > weex弹窗组件。支持居中淡入淡出弹窗及向下向上弹出弹窗。
 
-![演示图](../../images/demo.gif "weex-popup")
-
-
+![演示图](https://raw.githubusercontent.com/yuwanli/weex-coms/master/images/demo.gif "weex-popup")
 
 #### 如何使用
 
@@ -145,7 +143,7 @@ import {weexPopup} from 'weex-coms';
 </style>
 ```
 #### 可运行页面进行查看效果
-至于如何运行安装及查看页面可看[前一页](../../README.md)
+至于如何运行安装及查看页面可看[前一页](https://github.com/yuwanli/weex-coms)
 
 ```
 weex-previewer examples/popup/index.vue

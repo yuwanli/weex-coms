@@ -34,9 +34,9 @@ weex-rich-text | 富文本组件，弥补weex不支持`v-html`/`v-text`的短板
 ##### 可能有人会说，不是有weex-ui了么，我这个是不是在重复造轮子？
 weex-ui确实封装了很多实用的组件，很多组件我们也在实际的项目中在使用，所以当然我不会重复造轮子。封装的这些组件时为了解决其他的一些问题，或者说是做了一些优化，实现的功能上也会有些许差异，具体的细节可以查看
 
-- [weex-popup](components/weex-popup/README.md)
-- [weex-lamp](components/weex-lamp/README.md)
-- [weex-rich-text](components/weex-rich-text/README.md)
+- [weex-popup](https://github.com/yuwanli/weex-coms/blob/master/components/weex-popup/README.md)
+- [weex-lamp](https://github.com/yuwanli/weex-coms/blob/master/components/weex-lamp/README.md)
+- [weex-rich-text](https://github.com/yuwanli/weex-coms/blob/master/components/weex-rich-text/README.md)
  
 ##### 看组件相关内容时，我希望你已经（点击了解更多）
 
