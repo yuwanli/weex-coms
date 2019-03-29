@@ -9,3 +9,10 @@
 - 了解过[bindingx](https://alibaba.github.io/bindingx/)
 
 
+组件 | 描述 | 参数
+---|--- |---
+weex-popup | 弹窗组件支持居中的淡入淡出、向上向下弹出的形式 |showPopup(`boolean`)：是否显示弹窗<br>popupType(`string`)：弹窗类型(`center`、`top`、`bottom`)<br>defaultClose(`boolean`)：是否默认点击蒙层关闭
+weex-lamp | 跑马灯组件，支持单条和容器式跑马灯 |
+weex-rich-text | 富文本组件，弥补weex不支持`v-html`/`v-text`的短板 |
+
+

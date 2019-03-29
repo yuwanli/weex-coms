@@ -3,7 +3,6 @@
         <div class="weex-popup_mask" ref="popupMask" @click="maskClick"></div>
         <div :class="['weex-popup_content','weex-popup_content_'+popupType]" :style="computedStyle" ref="popupContent" @click.stop>
             <slot></slot>
-            <image v-if="showClose" class="weex-popup_img" @click="hidePopup" src="http://h0.hucdn.com/open201911/60ed60ab61e40217_40x40.png"></image>
         </div>
     </div>
 </template>
@@ -24,10 +23,6 @@ export default {
     },
     props: {
         showPopup: {
-            type: Boolean,
-            default: false,
-        },
-        showClose: {
             type: Boolean,
             default: false,
         },
