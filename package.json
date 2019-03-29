@@ -1,6 +1,6 @@
 {
   "name": "weex-coms",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "weex组件库",
   "main": "index.js",
   "lib": "vue",
