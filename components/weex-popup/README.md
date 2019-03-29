@@ -1,7 +1,7 @@
 ## weex-popup
 > weex弹窗组件。支持居中淡入淡出弹窗及向下向上弹出弹窗。
 
-![演示图](images/demo.gif "weex-popup")
+![演示图](../../images/demo.gif "weex-popup")
 
 #### 运行页面进行查看
 至于如何运行安装及查看页面可看[前一页](../../README.md)
