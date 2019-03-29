@@ -43,6 +43,7 @@
 </template>
 <script>
   import weexPopup from '../../components/weex-popup/index.js';
+  // import {weexPopup} from 'weex-coms';
   import description from '../components/description/index.js'
   import wrapper from '../components/wrapper/index.js'
   import comButton from '../components/com-button/index.js'

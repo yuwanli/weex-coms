@@ -1,7 +1,7 @@
-import WeexPopup from './components/weex-popup';
-import WeexLamp from './components/weex-lamp';
+import weexPopup from './components/weex-popup';
+import weexLamp from './components/weex-lamp';
 
 export {
-    WeexPopup,
-    WeexLamp
+    weexPopup,
+    weexLamp
 };

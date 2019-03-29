@@ -3,14 +3,23 @@
 
 ![演示图](../../images/demo.gif "weex-popup")
 
-#### 运行页面进行查看
-至于如何运行安装及查看页面可看[前一页](../../README.md)
+
+
+#### 如何使用
+
+安装weex-coms
 
 ```
-weex-previewer examples/popup/index.vue
+npm install weex-coms -i
+//若403无法安装，则切换原有npm，再安装
+npm config set registry https://registry.npmjs.org/
+```
+组件引入
+```
+import {weexPopup} from 'weex-coms';
 ```
 
-使用代码如下
+具体使用代码如下
 ```html
 <template>
   <div class="weex-demo">
@@ -57,6 +66,7 @@ weex-previewer examples/popup/index.vue
 </template>
 <script>
   import weexPopup from '../../components/weex-popup/index.js';
+  // import {weexPopup} from 'weex-coms';
   import description from '../components/description/index.js'
   import wrapper from '../components/wrapper/index.js'
   import comButton from '../components/com-button/index.js'
@@ -133,6 +143,12 @@ weex-previewer examples/popup/index.vue
   align-items: center;
 }
 </style>
+```
+#### 可运行页面进行查看效果
+至于如何运行安装及查看页面可看[前一页](../../README.md)
+
+```
+weex-previewer examples/popup/index.vue
 ```
 
 #### 为啥要再次分装？
