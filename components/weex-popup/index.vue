@@ -1,6 +1,6 @@
 <template>
     <div :class="['weex-popup','weex-popup_'+popupType]" ref="popup" v-if="showPopup || showInCurrent">
-        <div class="weex-popup_mask" ref="popupMask" @click="maskClick"></div>
+        <div class="weex-popup_mask" ref="popupMask" :style="{'background-color':popupColor}" @click="maskClick"></div>
         <div :class="['weex-popup_content','weex-popup_content_'+popupType]" :style="computedStyle" ref="popupContent" @click.stop>
             <slot></slot>
         </div>
@@ -34,6 +34,10 @@ export default {
             type: Boolean,
             default: true,
         },
+        popupColor: {
+            type: String,
+            default: 'rgba(0,0,0,0.6)'
+        }
     },
     components: {},
     computed: {
@@ -65,6 +69,7 @@ export default {
     },
     methods: {
         maskClick() {
+            this.$emit('maskClick')
             this.defaultClose && this.hidePopup();
         },
         hidePopup() {

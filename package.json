@@ -8,14 +8,15 @@
     "build": "node index.js",
     "serve": "anywhere -d build/example/ -p 8888",
     "watch": "webpack --progress --watch",
-    "start": "npm run serve & npm run watch"
+    "start": "npm run serve & npm run watch",
+    "dev": "weex-previewer "
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yuwanli/weex-coms.git"
   },
   "author": "604073367@qq.com",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/yuwanli/weex-coms/issues"
   },
