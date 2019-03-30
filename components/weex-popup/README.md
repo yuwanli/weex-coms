@@ -22,12 +22,9 @@ import {weexPopup} from 'weex-coms';
 ```html
 <template>
   <div class="weex-demo">
-    <description title="weex-popup" desc="weex弹窗组件，主要是不希望slot传高度，希望做到自适应高度动态显示"></description>
-    <wrapper>
-      <com-button bgColor='#f21818' color='#ffffff' @click="showPopup = true" text="居中淡入"></com-button>
-      <com-button bgColor='yellowgreen' color='#ffffff' @click="showPopup2 = true" text="向上弹出"></com-button>
-      <com-button bgColor='#3c8dbc' color='#ffffff' @click="showPopup3 = true" text="向下弹出"></com-button>
-    </wrapper>
+    <text class="button" @click="showPopup = true" style="background-color:#f21818">居中淡入</text>
+    <text class="button" @click="showPopup2 = true" style="background-color:yellowgreen">向上弹出</text>
+    <text class="button" @click="showPopup3 = true" style="background-color:#3c8dbc">向下弹出</text>
     <weex-popup :show-popup="showPopup" @maskClick="maskClick('居中弹窗')" popup-type="center" @hidePopup="showPopup = false" :default-close=true popup-color="rgba(255,0,0,0.6)">
       <div class="popup center">
         <text class="popup__title">这是一个居中弹窗</text>
@@ -64,18 +61,11 @@ import {weexPopup} from 'weex-coms';
   </div>
 </template>
 <script>
-  import weexPopup from '../../components/weex-popup/index.js';
-  // import {weexPopup} from 'weex-coms';
-  import description from '../components/description/index.js'
-  import wrapper from '../components/wrapper/index.js'
-  import comButton from '../components/com-button/index.js'
+  import {weexPopup} from 'weex-coms';
   const modal = weex.requireModule('modal');
   export default {
     components: { 
       weexPopup,
-      description,
-      wrapper,
-      comButton
     },
     data: {
       showPopup: true,
@@ -97,6 +87,15 @@ import {weexPopup} from 'weex-coms';
 .weex-demo{
   flex: 1;
 }
+.button{
+    height: 88px;
+    line-height: 88px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #fff;
+} 
 .popup{
   background-color: #ffffff;
   align-items: center;
