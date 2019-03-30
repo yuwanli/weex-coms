@@ -1,5 +1,5 @@
-## weex-coms
-> weex组件库，这里主要是分享下weex开发过程中封装的一些weex组件，如popup、rich-text、lamp（努力持续更新）,会分享自己遇到的一些坑，以及自己的一个做法和想法。
+## [weex-coms](https://github.com/yuwanli/weex-coms)
+weex组件库，这里主要是分享下weex开发过程中封装的一些weex组件，如popup、rich-text、lamp（努力持续更新）,会分享自己遇到的一些坑，以及自己的一个做法和想法。
 
 ### 项目启动
 - 下载当前工程
@@ -23,7 +23,7 @@ weex-previewer examples/popup/index.vue
 ```
 - 扫码查看相应页面
 
-### 组件相关信息
+### 组件相关说明
 
 组件 | 描述 | 参数
 ---|--- |---

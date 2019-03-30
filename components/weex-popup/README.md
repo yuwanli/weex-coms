@@ -1,23 +1,24 @@
 ## weex-popup
 > weex弹窗组件。支持居中淡入淡出弹窗及向下向上弹出弹窗。
 
-![演示图](https://raw.githubusercontent.com/yuwanli/weex-coms/master/images/demo.gif "weex-popup")
+![演示图](https://user-gold-cdn.xitu.io/2019/3/30/169ca92b34dea187?w=285&h=504&f=gif&s=736091 "weex-popup")
 
 #### 如何使用
 
-安装weex-coms
+- 安装weex-coms
 
 ```
 npm install weex-coms -i
 //若403无法安装，则切换原有npm，再安装
 npm config set registry https://registry.npmjs.org/
 ```
-组件引入
+- 组件引入
 ```
 import {weexPopup} from 'weex-coms';
 ```
 
-具体使用代码如下
+- 具体使用代码如下
+
 ```html
 <template>
   <div class="weex-demo">
@@ -142,14 +143,13 @@ import {weexPopup} from 'weex-coms';
 }
 </style>
 ```
-#### 可运行页面进行查看效果
-至于如何运行安装及查看页面可看[前一页](https://github.com/yuwanli/weex-coms)
+- 可运行页面进行查看效果（如何运行安装及查看页面可看[前一页](https://github.com/yuwanli/weex-coms)）
 
 ```
 weex-previewer examples/popup/index.vue
 ```
 
-#### 为啥要再次分装？
+#### 为啥要再次封装？
 [weex-ui](https://alibaba.github.io/weex-ui/#/cn/)里其实已经有[popup](https://alibaba.github.io/weex-ui/#/cn/packages/wxc-popup/)组件了，使用也很简单。但是遇到了一个比较麻烦的问题就是，要准确传入`height`，这个就导致如果弹窗主体内容的高度是自适应的时候，需要先获取内容的高度，准确给`wxc-popup`赋值`height`才行，所以`weex-popup`主要的功能点就是不用传入`height`。具体用法如下:
 ```html
 <template>
@@ -183,7 +183,7 @@ weex-previewer examples/popup/index.vue
   };
 </script>
 ```
-#### 首先的问题就是，为什么一定要传入一个高度呢？
+#### 为什么一定要传入一个高度呢？
 > 核心原因就在于weex中单位不支持百分比
 
 大家可以想下在h5中我们要一个元素的移入和移出的效果怎么写。以下是我封装h5的弹窗的代码(截取样式的一部分)
@@ -245,13 +245,13 @@ weex-previewer examples/popup/index.vue
 
 似乎传高度也没有什么问题，好多时候弹窗设计出来的时候高度就是固定的。但是如果弹窗高度是自适应的呢，这个高度该如何获取？如果弹窗的内容是后端控制的呢？
 
-#### 所以尝试做了封装
+#### weex-popup的实现过程
 实现的过程（拿置底向上弹出的弹窗为例）
 - 获取主内容的高度h 
 - 进行h高度的正向偏移使其离开屏幕 
 - 用animation进行tranition动画使其向上淡出
 
-1. 获取主内容的高度h
+##### 1.获取主内容的高度h
 ```javascript
 //...
 const getHeight = () => new Promise((resolve) => {
@@ -275,7 +275,7 @@ const getHeight = () => new Promise((resolve) => {
 //...
 ```
 
-2. 进行h高度的正向偏移使其离开屏幕
+##### 2. 进行h高度的正向偏移使其离开屏幕
 ```javascript
 <div :class="['weex-popup_content','weex-popup_content_'+popupType]" :style="computedStyle" ref="popupContent" @click.stop>
     <slot></slot>
@@ -298,7 +298,7 @@ computed: {
 },
 ...
 ```
-3.用animation进行tranition动画使其向上淡出
+##### 3.用animation进行tranition动画使其向上淡出
 ```
 ...
 let resObj = {
@@ -327,15 +327,14 @@ getHeight().then(() => {
     });
 });
 ```
+#### 关于setTimeout
+>细心的同学会发现这边用的是setTimeout，可能会有疑问，为啥不用nextTick? 因为实际使用发现nextTick会不准，跟weex的渲染机制有关，因为真正渲染的是原生的元素，vue中的nextTick是把回掉放在微任务队列中（支持promise的情况下），放在渲染函数之后。可是这一套渲染机制放在weex中就不适用了。所以这边也是踩了好几次的坑，最后得出的结论，是`30s`。
 
-#### 细心的同学会发现这边用的是setTimeout，可能会有疑问，为啥不用nextTick?
->因为实际使用发现nextTick会不准，跟weex的渲染机制有关，因为真正渲染的是原生的元素，vue中的nextTick是把回掉放在微任务队列中（支持promise的情况下），放在渲染函数之后。可是这一套渲染机制放在weex中就不适用了。所以这边也是踩了好几次的坑，最后得出的结论，是`30s`。
 
-
-#### showInCurrent这个参数的作用是？
+#### showInCurrent的作用
 > 因为主内容整个用`v-if='showPopup'`包裹，当关闭弹窗的时候，我们希望弹窗消失是淡出（居中），或者移出（向上或者向下）的，而不是直接关闭掉的，所以这里引入了另一个参数showInCurrent，可以把它理解为当前状态弹窗是否可显示。
 
-showInCurrent的状态变更过程
+##### showInCurrent的状态变更过程
 - 当弹窗打开时`showPopup=true`,`showInCurrent`会在动画执行完成被置成`true`
 - 当弹窗关闭时`showPopup=true`，由于现在`showInCurrent`为`true`所以弹窗一直显示，当动画执行完成，再把改成置成`false`,整个弹窗就关闭了
 
@@ -346,5 +345,3 @@ showInCurrent的状态变更过程
 - [ ] 参数的扩展，如：动画的执行时间、`timingFunction` 等
 - [ ] 性能的检测和优化
 - [ ] 向左向右出的弹窗？
-
-
