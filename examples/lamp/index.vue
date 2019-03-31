@@ -8,7 +8,7 @@
             src="http://h0.hucdn.com/open/201904/3db5bf7affe4900c_36x36.png"></image>
             <weex-lamp class="test" :container-style="containerStyle" :lamp-data="lampData" :item-style="itemStyle" :ani-time="aniTime" :stop-time="stopTime" ref="lamp1">
                 <div slot="item" class="test-item" slot-scope="{data}">
-                    <image src="http://h0.hucdn.com/open/201904/3e066c4d8435290b_88x88.png" class="test-img"></image>
+                    <image src="https://mirror-gold-cdn.xitu.io/168e085848dee33b37a?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1" class="test-img"></image>
                     <text :style="itemStyle">{{data}}</text>
                 </div>
             </weex-lamp>
