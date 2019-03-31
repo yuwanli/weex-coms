@@ -149,7 +149,7 @@ weex-previewer examples/popup/index.vue
 ```
 
 #### 为啥要再次封装？
-[weex-ui](https://alibaba.github.io/weex-ui/#/cn/)里其实已经有[popup](https://alibaba.github.io/weex-ui/#/cn/packages/wxc-popup/)组件了，使用也很简单。但是遇到了一个比较麻烦的问题就是，要准确传入`height`，这个就导致如果弹窗主体内容的高度是自适应的时候，需要先获取内容的高度，准确给`wxc-popup`赋值`height`才行，所以`weex-popup`主要的功能点就是不用传入`height`。具体用法如下:
+[weex-ui](https://alibaba.github.io/weex-ui/#/cn/)里其实已经有[popup](https://alibaba.github.io/weex-ui/#/cn/packages/wxc-popup/)组件了，使用也很简单。但是遇到了一个比较麻烦的问题就是，要准确传入`height`，这个就导致如果弹窗主体内容的高度是自适应的时候，需要先获取内容的高度，准确给`wxc-popup`赋值`height`才行，所以`weex-popup`主要的功能点就是不用传入`height`。`wxc-popoup`的具体用法如下（注意需要传入`height="500"`）:
 ```html
 <template>
   <div>
