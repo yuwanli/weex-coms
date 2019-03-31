@@ -246,9 +246,11 @@ weex-previewer examples/popup/index.vue
 
 #### weex-popup的实现过程
 实现的过程（拿置底向上弹出的弹窗为例）
-- 获取主内容的高度h 
-- 进行h高度的正向偏移使其离开屏幕 
-- 用animation进行tranition动画使其向上淡出
+1. 首次获取主内容的高度h，并缓存高度（居中显示的无需获取高度）
+2. 进行h高度的正向偏移使其离开屏幕 
+3. 用animation进行tranition动画使其向上淡入
+4. 用animation进行tranition动画使其向下淡出
+5. 后续就3.4重复即可，无需再次获取高度
 
 ##### 1.获取主内容的高度h
 ```javascript
